@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    include: common, intelligence
+    active: dev
+  cloud:
+    zookeeper:
+#      connect-string: 172.18.110.241:7998
+#      connect-string: localhost:2181
+#      connect-string: 10.0.1.125:2181
+      connect-string: 10.10.208.86:2181
+      discovery:
+        instance-id: ${spring.cloud.client.ip-address}:${server.port}
+        instance-host: ${spring.cloud.client.ip-address}
+      enabled: false
